@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     ListView listView;
     private ProgressDialog progressDialog;
     RequestHandler requestHandler;
+    String projectUrl = "https://api.github.com/repos/williamnkosi/GM_Tech_Assignment/commits";
 
 
     @Override
@@ -34,12 +35,13 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.Main_Activity_ListView);
 
+        // Get RequestHandler from Dagger
         RequestHandlerComponent requestHandlerComponent = DaggerRequestHandlerComponent.create();
         requestHandler = requestHandlerComponent.getRequestHandler();
+
+
         RequestAsync task = new RequestAsync();
         task.execute();
-
-
     }
 
     private Void createListOfCommits(JSONArray json) {
@@ -88,7 +90,7 @@ public class MainActivity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             try{
                 //Get Request
-                String json = requestHandler.httpSendGet("https://api.github.com/repos/williamnkosi/GM_Tech_Assignment/commits");
+                String json = requestHandler.httpSendGet(projectUrl);
                 if(json != null){
                     JSONArray jsonArray = new JSONArray(json);
                     createListOfCommits(jsonArray);
