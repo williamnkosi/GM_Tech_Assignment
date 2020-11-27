@@ -10,9 +10,12 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import javax.inject.Inject;
+
 public class RequestHandler {
     private static final String TAG = "RequestHandler";
 
+    @Inject
     public RequestHandler() {
     }
 
