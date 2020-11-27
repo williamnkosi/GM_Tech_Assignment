@@ -5,11 +5,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -17,9 +14,9 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import nkosi.william.gmtechassignment.models.Commit;
+import nkosi.william.gmtechassignment.requestHandler.RequestHandler;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
