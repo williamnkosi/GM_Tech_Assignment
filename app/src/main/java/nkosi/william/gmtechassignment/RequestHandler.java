@@ -33,7 +33,9 @@ public class RequestHandler {
                      response.append(line);
                  }
                  in.close();
-                 return  response.toString();
+                 String returnString = response.toString();
+                Log.d(TAG, "httpSendGet: " + returnString);
+                 return  returnString;
             }
 
 
@@ -43,7 +45,7 @@ public class RequestHandler {
             e.printStackTrace();
         }
 
-        return "Failed to return anything...";
+        return null;
 
         // POST Request
         // UPDATE Request
