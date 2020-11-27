@@ -13,6 +13,7 @@ import java.net.URL;
 public class RequestHandler {
     private static final String TAG = "RequestHandler";
 
+    //GET Request
     public static String httpSendGet(String requestUrl) {
         try {
             URL reqUrl = new URL(requestUrl);
@@ -43,5 +44,9 @@ public class RequestHandler {
         }
 
         return "Failed to return anything...";
+
+        // POST Request
+        // UPDATE Request
+        // DELETE Request
     }
 }
