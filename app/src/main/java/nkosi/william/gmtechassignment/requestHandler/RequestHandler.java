@@ -13,8 +13,11 @@ import java.net.URL;
 public class RequestHandler {
     private static final String TAG = "RequestHandler";
 
+    public RequestHandler() {
+    }
+
     //GET Request
-    public static String httpSendGet(String requestUrl) {
+    public String httpSendGet(String requestUrl) {
         try {
             URL reqUrl = new URL(requestUrl);
             HttpURLConnection connection = (HttpURLConnection) reqUrl.openConnection();
