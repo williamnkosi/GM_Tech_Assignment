@@ -10,4 +10,16 @@ public class Commit {
         this.commitHash = commitHash;
         this.commitMessage = commitMessage;
     }
+
+    public String getAuthor() {
+        return Author;
+    }
+
+    public String getCommitHash() {
+        return commitHash;
+    }
+
+    public String getCommitMessage() {
+        return commitMessage;
+    }
 }
