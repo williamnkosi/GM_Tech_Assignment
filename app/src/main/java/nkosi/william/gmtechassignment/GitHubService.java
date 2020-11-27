@@ -13,12 +13,12 @@ import nkosi.william.gmtechassignment.models.Commit;
 
 public class GitHubService {
     private static final String TAG = "GitHubService";
-    ArrayList<Commit> listOfCommits = new ArrayList<Commit>();
+    private ArrayList<Commit> listOfCommits = new ArrayList<Commit>();
 
     public GitHubService() {
         new RequestAsync().execute();
     }
-    
+
     public ArrayList getListOfCommits(){
         return listOfCommits;
     }
