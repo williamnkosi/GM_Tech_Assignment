@@ -50,16 +50,12 @@ public class MainActivity extends AppCompatActivity {
                 String author = authorObject.getString("name");
                 Commit commit = new Commit(author,sha,commitMessage);
                 listOfCommits.add(commit);
-                Log.d(TAG, "createListOfCommits: " + sha);
-                Log.d(TAG, "createListOfCommits: " + commitMessage);
-                Log.d(TAG, "createListOfCommits: " +author);
-                Log.d(TAG, "createListOfCommits: -----------------");
             } catch (JSONException e){
                 e.printStackTrace();
             }
 
         }
-        Log.d(TAG, "createListOfCommits: --->" + listOfCommits.size());
+
         return  null;
     }
 
