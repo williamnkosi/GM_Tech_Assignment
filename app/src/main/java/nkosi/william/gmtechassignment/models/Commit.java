@@ -22,4 +22,13 @@ public class Commit {
     public String getCommitMessage() {
         return commitMessage;
     }
+
+    @Override
+    public String toString() {
+        return
+                "Author = " + Author + '\n' +
+                "commitHash = " + commitHash + '\n' +
+                "commitMessage = " + commitMessage + '\n'
+                ;
+    }
 }

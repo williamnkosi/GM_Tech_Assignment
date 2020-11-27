@@ -6,7 +6,10 @@ import android.app.ProgressDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -69,6 +72,17 @@ public class MainActivity extends AppCompatActivity {
             progressDialog.setMessage("Loading your project commits...");
             progressDialog.setCancelable(false);
             progressDialog.show();
+        }
+
+        @Override
+        protected void onPostExecute(Void aVoid) {
+            super.onPostExecute(aVoid);
+            if(progressDialog.isShowing()){
+                progressDialog.dismiss();
+            }
+
+            ArrayAdapter listAdapter = new ArrayAdapter<Commit>(MainActivity.this,android.R.layout.simple_list_item_1, listOfCommits);
+            listView.setAdapter(listAdapter);
         }
 
         @Override
