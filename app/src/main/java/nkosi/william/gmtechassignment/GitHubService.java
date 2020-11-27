@@ -18,6 +18,10 @@ public class GitHubService {
     public GitHubService() {
         new RequestAsync().execute();
     }
+    
+    public ArrayList getListOfCommits(){
+        return listOfCommits;
+    }
 
     private Void createListOfCommits(JSONArray json) {
         for (int i = 0; i < json.length(); i++){
