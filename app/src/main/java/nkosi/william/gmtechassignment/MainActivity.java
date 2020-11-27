@@ -16,13 +16,16 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 
 import nkosi.william.gmtechassignment.models.Commit;
+import nkosi.william.gmtechassignment.requestHandler.DaggerRequestHandlerComponent;
 import nkosi.william.gmtechassignment.requestHandler.RequestHandler;
+import nkosi.william.gmtechassignment.requestHandler.RequestHandlerComponent;
 
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MainActivity";
     private ArrayList<Commit> listOfCommits = new ArrayList<Commit>();
     ListView listView;
     private ProgressDialog progressDialog;
+    RequestHandler requestHandler;
 
 
     @Override
@@ -30,6 +33,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         listView = findViewById(R.id.Main_Activity_ListView);
+
+        RequestHandlerComponent requestHandlerComponent = DaggerRequestHandlerComponent.create();
+        requestHandler = requestHandlerComponent.getRequestHandler();
         RequestAsync task = new RequestAsync();
         task.execute();
 
@@ -82,7 +88,7 @@ public class MainActivity extends AppCompatActivity {
         protected Void doInBackground(Void... voids) {
             try{
                 //Get Request
-                String json = RequestHandler.httpSendGet("https://api.github.com/repos/williamnkosi/GM_Tech_Assignment/commits");
+                String json = requestHandler.httpSendGet("https://api.github.com/repos/williamnkosi/GM_Tech_Assignment/commits");
                 if(json != null){
                     JSONArray jsonArray = new JSONArray(json);
                     createListOfCommits(jsonArray);
